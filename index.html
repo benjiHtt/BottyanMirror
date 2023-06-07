@@ -1,118 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hu">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-  <link rel="icon" type="img/favicon" href="img/favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-  <link rel="stylesheet" href="style.css">
-  <script defer src="script.js" ></script>
-  <title>BottyanMirror</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="icon" type="img/favicon" href="img/favicon.png">
+
+
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+    <title>BottyanMirror</title>
 </head>
 
 <body>
 
 <!-- Modul 1. Mai Nap -->
 <!-- óra, év, hónap, nap, nap neve-->
-<div class="card" >
-      <div class="flex"> 
+<div class="card marginleft margintop">
+    <div class="flex">
 
         <div class="clock">
-          <div class="hand hour" data-hour-hand></div>
-          <div class="hand minute" data-minute-hand></div>
-          <div class="hand second" data-second-hand></div>
-          <div class="number number1">1</div>
-          <div class="number number2">2</div>
-          <div class="number number3">3</div>
-          <div class="number number4">4</div>
-          <div class="number number5">5</div>
-          <div class="number number6">6</div>
-          <div class="number number7">7</div>
-          <div class="number number8">8</div>
-          <div class="number number9">9</div>
-          <div class="number number10">10</div>
-          <div class="number number11">11</div>
-          <div class="number number12">12</div>
+            <div class="hand hour" data-hour-hand></div>
+            <div class="hand minute" data-minute-hand></div>
+            <div class="hand second" data-second-hand></div>
+            <div class="number number1">1</div>
+            <div class="number number2">2</div>
+            <div class="number number3">3</div>
+            <div class="number number4">4</div>
+            <div class="number number5">5</div>
+            <div class="number number6">6</div>
+            <div class="number number7">7</div>
+            <div class="number number8">8</div>
+            <div class="number number9">9</div>
+            <div class="number number10">10</div>
+            <div class="number number11">11</div>
+            <div class="number number12">12</div>
         </div>
-      
+
 
     </div>
-    
-    <h1 id="current-time"></h1>
-    <script>
-      let time1 = document.getElementById("current-time");
 
-      setInterval(() =>{
-          let d = new Date();
-          time1.innerHTML = d.toLocaleTimeString();
-      },1000)
-     
-   </script>
-   <h1 id="datename"></h1>
+    <h1 id="current-time" style="margin-left: 90px"></h1>
+    <h1 id="datename" style="margin-left: 60px"></h1>
+</div>
+</div>
 
-   <script>
-    let time = document.getElementById("datename");
-
-    setInterval(() =>{
-        let d = new Date();
-        time.innerHTML = d.toLocaleDateString();
-    },1000)
-    </script>
-  </div>
-</div> 
-
- <!-- Modul 2. DHT -->
- <!-- fok(szimbólum), paratartalom-->
-  <div class="card" >
-    <div class="topright">
-      <h2 class="city">2.DHT adatok:</h2>
-      <h1 class="temp">51°C</h1>
-      <div class="flex">
-        <img src="https://openweathermap.org/img/wn/04n.png" alt="" class="icon" />
-        <div class="description">Cloudy</div>
-      </div>
-      <div class="humidity">Páratatalom: 60%</div>
-     <!--  <div class="wind">Wind speed: 6.2 km/h</div> -->
+<!-- Modul 2. DHT -->
+<!-- fok(szimbólum), paratartalom-->
+<div class="card">
+    <div class="topright marginright margintop">
+        <h2 class="city">2.DHT adatok:</h2>
+        <h1 class="temp" id="temperature">15°C</h1>
+        <div class="flex">
+            <img src="https://openweathermap.org/img/wn/04n.png" alt="" class="icon"/>
+            <div class="description">Felhős</div>
+        </div>
+        <div class="humidity" id="humidity">Páratatalom: 60%</div>
+        <!--  <div class="wind">Wind speed: 6.2 km/h</div> -->
     </div>
-  </div>
+</div>
 
-   <!-- Modul 3. Órarend -->
-  <!-- nap neve, orak listaja tablazatban -->
-   <div class="card" >
-    <div class="bottomleft">
-      <h1 class="day-name">"Nap neve"</h1>
-
-      <script>
-        function getDayName(dateStr, locale)
-      {
-       var date = new Date(dateStr);
-        return date.toLocaleDateString(locale, { weekday: 'long' });        
-         }
-         let d = new Date();
-          var dateStr = d.toLocaleDateString();;
-          var day = getDayName(dateStr, "hu-HU"); // visszadja a napot
-        </script>
-
-      <h2 class="temp">Órarend:</h2>
-      
+<!-- Modul 3. Órarend -->
+<!-- nap neve, orak listaja tablazatban -->
+<div class="card marginbottom">
+    <div class="bottomleft marginleft">
+        <h1 class="day-name" id="dayname"></h1>
+        <h2 class="temp">Órarend:</h2>
+        <p class="myP" id="orarend1"> mondat 1</p>
+        <p class="myP" id="orarend2"> mondat 1</p>
+        <p class="myP" id="orarend3"> mondat 1</p>
+        <p class="myP" id="orarend4"> mondat 1</p>
+        <p class="myP" id="orarend5"> mondat 1</p>
     </div>
-  </div>
+</div>
 
-   <!-- Modul 4. Üdvözlet -->
-    <!-- valtakozo uzenetek-->
-   <div class="card" >
+<!-- Modul 4. Üdvözlet -->
+<!-- valtakozo uzenetek-->
+<div class="card marginbottom">
     <div class="center">
-      <h2 id="myH2">4. Üdvözlet teszt</h2>
-      <p class="myP"> mondat 1</p>
-      <p class="myP"> mondat 1</p>
-      <button id="myButton">Click Me</button>
+        <h2 id="txt1">4. Üdvözlet teszt</h2>
+        <p class="myP" id="txt2"> mondat 1</p>
+        <p class="myP" id="txt3"> mondat 1</p>
     </div>
-  </div>
- <script src="script.js"> </script>
+</div>
+
+<script src="script.js"></script>
+
 </body>
 
 </html>
